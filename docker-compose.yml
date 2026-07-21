@@ -1,0 +1,23 @@
+version: "3.9"
+
+services:
+  postgres:
+    image: postgres:17
+
+    container_name: horizon-postgres
+
+    restart: always
+
+    environment:
+      POSTGRES_USER: horizon
+      POSTGRES_PASSWORD: horizon123
+      POSTGRES_DB: horizon_db
+
+    ports:
+      - "5432:5432"
+
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:
